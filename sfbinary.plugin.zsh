@@ -12,13 +12,16 @@ function _sfbinary() {
 	        "*::arg:->args"
 	
 	case $line[1] in
-	        console)
-	            _sfbinary_subcommand 'console'
-	        ;;
-	        composer)
-	            _sfbinary_subcommand 'composer'
-	        ;;
-	    esac
+		console)
+			_sfbinary_subcommand 'console'
+			;;
+		composer)
+			_sfbinary_subcommand 'composer'
+			;;
+		*)
+			_files
+			;;
+	esac
 }
 
 compdef _sfbinary symfony
