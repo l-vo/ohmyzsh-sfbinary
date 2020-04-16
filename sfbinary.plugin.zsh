@@ -5,7 +5,7 @@ function _sfbinary_subcommand() {
 
 function _sfbinary() {
 	local line
-	list=`symfony list --no-ansi | sed "1,/Available commands/d" | sed "/Available wrappers/,$ d" | sed "s/ [A-Z].*//" | tr , '\n' | sed 's/ //g'`
+	list=`symfony list --no-ansi | sed "1,/Available commands/d" | sed "/Available wrappers/,/^$/d" | sed "s/ [A-Z].*//" | tr , '\n' | sed 's/ //g'`
 	
 	_arguments -C \
 	        "1: :($list composer console)" \
