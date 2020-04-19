@@ -10,7 +10,7 @@ function _sfbinary() {
 	
 	_arguments -C "1: :($list)" "*::arg:->args"
 	
-	if [ $line[1] != "" ]
+	if [[ $line[1] != "" ]]
 	then	
 		case $line[1] in
 			console)
