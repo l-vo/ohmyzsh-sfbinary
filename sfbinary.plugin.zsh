@@ -10,17 +10,20 @@ function _sfbinary() {
 	
 	_arguments -C "1: :($list)" "*::arg:->args"
 	
-	case $line[1] in
-		console)
-			_sfbinary_subcommand 'console'
-			;;
-		composer)
-			_sfbinary_subcommand 'composer'
-			;;
-		*)
-			_files
-			;;
-	esac
+	if [ $line[1] != "" ]
+	then	
+		case $line[1] in
+			console)
+				_sfbinary_subcommand 'console'
+				;;
+			composer)
+				_sfbinary_subcommand 'composer'
+				;;
+			*)
+				_files
+				;;
+		esac
+	fi		
 }
 
 compdef _sfbinary symfony
