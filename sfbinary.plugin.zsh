@@ -1,5 +1,6 @@
 function _sfbinary_subcommand() {
-	list=`symfony $1 --no-ansi | sed "1,/Available commands/d" | awk '/^  ?[^ ]+ / { print $1 }'`
+	# 2>/dev/null to remove problematic empty line when running `symfony composer`
+	list=`symfony $1 --no-ansi 2>/dev/null | sed "1,/Available commands/d" | awk '/^  ?[^ ]+ / { print $1 }'`
 	_arguments "1: :($list)"
 }
 
